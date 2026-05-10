@@ -60,10 +60,9 @@ export function Gallery() {
             OUR PORTFOLIO
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D2E52] mb-4 text-balance">
-            Craftsmanship You Can See
+            Recent Projects
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Browse through our collection of completed projects. Each installation showcases our commitment to quality, precision, and attention to detail. From kitchens to bathrooms, we bring your vision to life with stunning quartz surfaces.
           </p>
         </div>
 
