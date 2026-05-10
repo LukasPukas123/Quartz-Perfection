@@ -57,47 +57,36 @@ export function Gallery() {
   }
 
   return (
-    <section id="gallery" className="py-20 md:py-28 bg-background">
-      {/* 15-20% margins on each side using px-[15%] on mobile, px-[17%] on larger screens */}
-      <div className="px-[8%] sm:px-[12%] md:px-[15%] lg:px-[17%]">
-        {/* Section Header */}
-        <div className="text-center mb-14 md:mb-20">
-          <p className="text-primary font-semibold tracking-widest text-sm mb-4 uppercase">
-            Our Portfolio
+    <section id="gallery" className="py-16 md:py-24 bg-white">
+      {/* Container with 15-20% margins on each side */}
+      <div className="mx-auto px-[5%] sm:px-[10%] md:px-[15%] lg:px-[18%]">
+        {/* Section Header - matching reference exactly */}
+        <div className="text-center mb-12 md:mb-16">
+          <p className="text-primary font-semibold tracking-[0.2em] text-sm mb-4 uppercase">
+            Our Work
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-6 text-balance">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary tracking-tight">
             Recent Projects
           </h2>
-          <div className="w-16 h-1 bg-primary mx-auto" />
         </div>
 
-        {/* Symmetrical Gallery Grid - All images identical size */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
+        {/* Gallery Grid - 3 columns, 2 rows, identical sizing */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {galleryImages.map((image, index) => (
             <div
               key={index}
-              className="relative group cursor-pointer overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+              className="relative cursor-pointer overflow-hidden rounded-md"
               onClick={() => openLightbox(index)}
             >
-              {/* Fixed aspect ratio container for identical sizing */}
+              {/* Square-ish aspect ratio matching reference */}
               <div className="aspect-[4/3] relative">
                 <Image
                   src={image.src}
                   alt={image.alt}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 40vw, 28vw"
+                  className="object-cover"
                 />
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-secondary/0 group-hover:bg-secondary/40 transition-colors duration-300" />
-                {/* Title overlay on hover */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="text-center px-4">
-                    <h3 className="text-white text-lg md:text-xl font-semibold drop-shadow-lg">
-                      {image.title}
-                    </h3>
-                  </div>
-                </div>
               </div>
             </div>
           ))}
@@ -107,16 +96,16 @@ export function Gallery() {
       {/* Lightbox */}
       {lightboxOpen && (
         <div
-          className="fixed inset-0 z-50 bg-secondary/95 flex items-center justify-center backdrop-blur-sm"
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
           onClick={closeLightbox}
         >
           {/* Close Button */}
           <button
             onClick={closeLightbox}
-            className="absolute top-6 right-6 text-white/80 hover:text-white transition-colors z-50 p-2 rounded-full bg-white/10 hover:bg-white/20"
+            className="absolute top-6 right-6 text-white/80 hover:text-white transition-colors z-50"
             aria-label="Close lightbox"
           >
-            <X className="w-6 h-6" />
+            <X className="w-8 h-8" />
           </button>
 
           {/* Previous Button */}
@@ -125,15 +114,15 @@ export function Gallery() {
               e.stopPropagation()
               goToPrevious()
             }}
-            className="absolute left-4 md:left-8 text-white/80 hover:text-white transition-colors z-50 p-3 rounded-full bg-white/10 hover:bg-white/20"
+            className="absolute left-4 md:left-8 text-white/80 hover:text-white transition-colors z-50"
             aria-label="Previous image"
           >
-            <ChevronLeft className="w-8 h-8" />
+            <ChevronLeft className="w-10 h-10" />
           </button>
 
           {/* Image Container */}
           <div
-            className="relative w-full h-full max-w-4xl max-h-[75vh] mx-20 md:mx-24"
+            className="relative w-full h-full max-w-5xl max-h-[80vh] mx-16 md:mx-20"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
@@ -141,13 +130,13 @@ export function Gallery() {
               alt={galleryImages[currentIndex].alt}
               fill
               className="object-contain"
-              sizes="(max-width: 768px) 90vw, 80vw"
+              sizes="90vw"
             />
-            <div className="absolute -bottom-16 left-0 right-0 text-center">
-              <h3 className="text-white text-xl font-semibold mb-1">
+            <div className="absolute -bottom-12 left-0 right-0 text-center">
+              <h3 className="text-white text-lg font-semibold">
                 {galleryImages[currentIndex].title}
               </h3>
-              <p className="text-white/60 text-sm">
+              <p className="text-white/60 text-sm mt-1">
                 {currentIndex + 1} of {galleryImages.length}
               </p>
             </div>
@@ -159,10 +148,10 @@ export function Gallery() {
               e.stopPropagation()
               goToNext()
             }}
-            className="absolute right-4 md:right-8 text-white/80 hover:text-white transition-colors z-50 p-3 rounded-full bg-white/10 hover:bg-white/20"
+            className="absolute right-4 md:right-8 text-white/80 hover:text-white transition-colors z-50"
             aria-label="Next image"
           >
-            <ChevronRight className="w-8 h-8" />
+            <ChevronRight className="w-10 h-10" />
           </button>
         </div>
       )}
