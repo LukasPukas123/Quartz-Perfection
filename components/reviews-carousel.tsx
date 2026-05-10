@@ -94,21 +94,22 @@ export function ReviewsCarousel() {
 
   return (
     <section id="reviews" className="py-16 bg-white overflow-hidden">
-      <div className="container mx-auto px-4">
+      {/* Container with consistent 15-20% margins */}
+      <div className="mx-auto px-[5%] sm:px-[10%] md:px-[15%] lg:px-[18%]">
         {/* Header */}
         <div className="text-center mb-10">
-          <p className="text-[#1F71B8] font-semibold tracking-widest text-sm mb-3">
-            WHAT OUR CLIENTS SAY
+          <p className="text-[#1F71B8] font-semibold tracking-[0.2em] text-sm mb-3 uppercase">
+            What Our Clients Say
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D2E52] tracking-tight">
-            TRUSTED BY HOMEOWNERS
+            Trusted by Homeowners
           </h2>
         </div>
       </div>
 
-      {/* Infinite Scrolling Reviews */}
+      {/* Infinite Scrolling Reviews - full width with internal padding for effect */}
       <div 
-        className="relative overflow-hidden mx-4 md:mx-8 lg:mx-16"
+        className="relative overflow-hidden px-[5%] sm:px-[10%] md:px-[12%] lg:px-[15%]"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         onTouchStart={() => setIsPaused(true)}
@@ -160,7 +161,7 @@ export function ReviewsCarousel() {
       </div>
 
       {/* Google Reviews Button */}
-      <div className="container mx-auto px-4">
+      <div className="mx-auto px-[5%] sm:px-[10%] md:px-[15%] lg:px-[18%]">
         <div className="flex justify-center mt-10">
           <Button
             asChild
