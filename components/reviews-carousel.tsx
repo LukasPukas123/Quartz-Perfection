@@ -1,168 +1,174 @@
 "use client"
 
-import { Star } from "lucide-react"
+import { Star, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useEffect, useRef, useState } from "react"
+import { useState, useCallback } from "react"
 
 const reviews = [
   {
     id: 1,
     rating: 5,
-    text: "\"Quartz Perfection went above and beyond to get our kitchen countertops installed. They worked with us on scheduling, kept us updated every step of the way, and the finished product looks amazing. Highly recommend Quartz Perfection!\"",
+    text: "Quartz Perfection went above and beyond to get our kitchen countertops installed. They worked with us on scheduling, kept us updated every step of the way, and the finished product looks amazing. Highly recommend Quartz Perfection!",
     author: "Sarah Mitchell",
     source: "Google Review",
   },
   {
     id: 2,
     rating: 5,
-    text: "\"Quartz Perfection exceeded all expectations! From start to finish, the team was professional, communicative, and incredibly skilled. They installed our bathroom vanities quickly and efficiently, and the quality of work is outstanding. You can tell they take pride in what they do. Highly recommend them to anyone looking for reliable, top-notch quartz services!\"",
+    text: "Quartz Perfection exceeded all expectations! From start to finish, the team was professional, communicative, and incredibly skilled. They installed our bathroom vanities quickly and efficiently, and the quality of work is outstanding.",
     author: "Michael Johnson",
     source: "Google Review",
   },
   {
     id: 3,
     rating: 5,
-    text: "\"These guys are the best. Got the work done and treated me with a lot of respect. I would recommend them for sure.\"",
+    text: "These guys are the best. Got the work done and treated me with a lot of respect. I would recommend them for sure. Professional service from start to finish.",
     author: "David Williams",
     source: "Google Review",
   },
   {
     id: 4,
     rating: 5,
-    text: "\"Absolutely stunning work on our kitchen island! The attention to detail and craftsmanship is second to none. The team was punctual, clean, and professional throughout the entire process.\"",
+    text: "Absolutely stunning work on our kitchen island! The attention to detail and craftsmanship is second to none. The team was punctual, clean, and professional throughout the entire process.",
     author: "Jennifer Adams",
     source: "Google Review",
   },
   {
     id: 5,
     rating: 5,
-    text: "\"We had a great experience with Quartz Perfection. The quote was fair, the timeline was accurate, and the installation was flawless. Our new countertops are the highlight of our kitchen renovation!\"",
+    text: "We had a great experience with Quartz Perfection. The quote was fair, the timeline was accurate, and the installation was flawless. Our new countertops are the highlight of our kitchen renovation!",
     author: "Robert Chen",
     source: "Google Review",
   },
 ]
 
 export function ReviewsCarousel() {
-  const scrollRef = useRef<HTMLDivElement>(null)
-  const [isPaused, setIsPaused] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
+  const [currentIndex, setCurrentIndex] = useState(0)
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-    return () => window.removeEventListener("resize", checkMobile)
+  // Calculate how many reviews to show based on screen size
+  // Desktop: 3, Tablet: 2, Mobile: 1
+  const getVisibleCount = useCallback(() => {
+    if (typeof window === "undefined") return 3
+    if (window.innerWidth < 640) return 1
+    if (window.innerWidth < 1024) return 2
+    return 3
   }, [])
 
-  useEffect(() => {
-    const scrollContainer = scrollRef.current
-    if (!scrollContainer) return
+  const [visibleCount, setVisibleCount] = useState(3)
 
-    // Speed: pixels per frame (higher = faster)
-    // Desktop: slower, Mobile: faster
-    // Reduced by 25% from original values
-    const speed = isMobile ? 1.125 : 0.6
-    let animationId: number
-    let scrollPosition = 0
-
-    const animate = () => {
-      if (!isPaused && scrollContainer) {
-        scrollPosition += speed
-        
-        // Get the width of one set of reviews
-        const singleSetWidth = scrollContainer.scrollWidth / 3
-        
-        // Reset seamlessly when we've scrolled past one complete set
-        if (scrollPosition >= singleSetWidth) {
-          scrollPosition = 0
-        }
-        
-        scrollContainer.style.transform = `translateX(-${scrollPosition}px)`
-      }
-      animationId = requestAnimationFrame(animate)
+  // Update visible count on resize
+  useState(() => {
+    if (typeof window !== "undefined") {
+      const handleResize = () => setVisibleCount(getVisibleCount())
+      handleResize()
+      window.addEventListener("resize", handleResize)
+      return () => window.removeEventListener("resize", handleResize)
     }
+  })
 
-    animationId = requestAnimationFrame(animate)
-    
-    return () => cancelAnimationFrame(animationId)
-  }, [isPaused, isMobile])
+  const maxIndex = Math.max(0, reviews.length - visibleCount)
 
-  // Triple the reviews for seamless looping
-  const tripleReviews = [...reviews, ...reviews, ...reviews]
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1))
+  }
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1))
+  }
 
   return (
-    <section id="reviews" className="py-16 bg-white overflow-hidden">
+    <section id="reviews" className="py-20 md:py-28 bg-white">
       {/* Container with consistent 15-20% margins */}
       <div className="mx-auto px-[5%] sm:px-[10%] md:px-[15%] lg:px-[18%]">
         {/* Header */}
-        <div className="text-center mb-10">
-          <p className="text-[#1F71B8] font-semibold tracking-[0.2em] text-sm mb-3 uppercase">
+        <div className="text-center mb-14">
+          <p className="text-[#C41E3A] font-semibold tracking-[0.2em] text-sm mb-4 uppercase">
             What Our Clients Say
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D2E52] tracking-tight">
             Trusted by Homeowners
           </h2>
         </div>
-      </div>
 
-      {/* Infinite Scrolling Reviews - full width with internal padding for effect */}
-      <div 
-        className="relative overflow-hidden px-[5%] sm:px-[10%] md:px-[12%] lg:px-[15%]"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        onTouchStart={() => setIsPaused(true)}
-        onTouchEnd={() => setIsPaused(false)}
-      >
-        {/* Left edge blur overlay */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-24 lg:w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
-        
-        {/* Right edge blur overlay */}
-        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-24 lg:w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
-        
-        <div 
-          ref={scrollRef}
-          className="flex will-change-transform"
-          style={{ transform: "translateX(0)" }}
-        >
-          {tripleReviews.map((review, index) => (
+        {/* Reviews Grid */}
+        <div className="relative">
+          {/* Navigation Arrows */}
+          <button
+            onClick={goToPrevious}
+            className="absolute -left-4 md:-left-8 lg:-left-12 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white border border-gray-200 shadow-md hover:shadow-lg hover:border-[#0D2E52] transition-all"
+            aria-label="Previous reviews"
+          >
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-[#0D2E52]" />
+          </button>
+
+          <button
+            onClick={goToNext}
+            className="absolute -right-4 md:-right-8 lg:-right-12 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white border border-gray-200 shadow-md hover:shadow-lg hover:border-[#0D2E52] transition-all"
+            aria-label="Next reviews"
+          >
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-[#0D2E52]" />
+          </button>
+
+          {/* Reviews Container */}
+          <div className="overflow-hidden">
             <div
-              key={`${review.id}-${index}`}
-              className="flex-shrink-0 w-[220px] md:w-[240px] mx-2"
+              className="flex transition-transform duration-500 ease-out"
+              style={{
+                transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
+              }}
             >
-              <div className="border border-gray-200 rounded-lg p-4 flex flex-col justify-between h-[400px] md:h-[380px] bg-white hover:shadow-lg transition-shadow">
-                {/* Stars */}
-                <div>
-                  <div className="flex gap-0.5 mb-2">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-4 h-4 fill-[#F7B928] text-[#F7B928]"
-                      />
-                    ))}
+              {reviews.map((review) => (
+                <div
+                  key={review.id}
+                  className="flex-shrink-0 px-3"
+                  style={{ width: `${100 / visibleCount}%` }}
+                >
+                  <div className="bg-gray-50 border border-gray-100 rounded-lg p-6 md:p-8 h-full flex flex-col">
+                    {/* Stars */}
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="w-5 h-5 fill-[#F7B928] text-[#F7B928]"
+                        />
+                      ))}
+                    </div>
+
+                    {/* Review Text */}
+                    <p className="text-gray-700 leading-relaxed text-base flex-grow mb-6">
+                      &ldquo;{review.text}&rdquo;
+                    </p>
+
+                    {/* Author */}
+                    <div className="pt-4 border-t border-gray-200">
+                      <p className="font-semibold text-[#0D2E52]">{review.author}</p>
+                      <p className="text-gray-500 text-sm">{review.source}</p>
+                    </div>
                   </div>
-
-                  {/* Review Text */}
-                  <p className="text-gray-700 italic leading-snug text-sm">
-                    {review.text}
-                  </p>
                 </div>
-
-                {/* Author */}
-                <div className="mt-3 pt-3 border-t border-gray-100">
-                  <p className="font-semibold text-[#0D2E52] text-sm">{review.author}</p>
-                  <p className="text-gray-500 text-xs">{review.source}</p>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
 
-      {/* Google Reviews Button */}
-      <div className="mx-auto px-[5%] sm:px-[10%] md:px-[15%] lg:px-[18%]">
-        <div className="flex justify-center mt-10">
+          {/* Dots Indicator */}
+          <div className="flex justify-center gap-2 mt-8">
+            {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-2.5 h-2.5 rounded-full transition-all ${
+                  index === currentIndex
+                    ? "bg-[#0D2E52] w-8"
+                    : "bg-gray-300 hover:bg-gray-400"
+                }`}
+                aria-label={`Go to review set ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Google Reviews Button */}
+        <div className="flex justify-center mt-12">
           <Button
             asChild
             variant="outline"
