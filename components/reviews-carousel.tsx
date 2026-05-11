@@ -154,21 +154,22 @@ export function ReviewsCarousel() {
         </div>
       </div>
 
-      {/* Google Reviews Button */}
+      {/* Google Reviews Buttons */}
       <div className="mx-auto px-[5%] sm:px-[8%] md:px-[12%] lg:px-[15%]">
-        <div className="flex justify-center mt-12">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
+          {/* Read All Reviews Button */}
           <Button
             asChild
             variant="outline"
             className="border-[#0A0A0A] text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white rounded-none px-8 py-6 text-xs font-semibold tracking-[0.15em] uppercase"
           >
             <a
-              href="https://google.com/maps"
+              href="https://www.google.com/search?client=opera-gx&hs=Xgy&sca_esv=a9de2d2ce3c96c22&sxsrf=ANbL-n5wkAfJaMBaK9ye7PmqHECTjZ_uHA:1778538044605&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOUyTJM0d7FSjBgmsIxk5W2SDCaC5IHuDXSTCy0yn69Dtn-jA5VkF-GQ-mkVT69WDVPS7xdv7SX5wFPjc2pstHS0cUASCgVVQCtzu6wa6CggYEOao9A%3D%3D&q=Quartz+Perfection+Reviews&sa=X&ved=2ahUKEwif6PjCorKUAxXvNYYAHX53OxkQ0bkNegQIKBAH&biw=1875&bih=958&dpr=1#lrd=0x882b8b10a67297fd:0x73f05292c4a589ef,3"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3"
             >
-              <svg className="w-5 h-5" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   fill="#4285F4"
                   d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -189,7 +190,32 @@ export function ReviewsCarousel() {
               Read All Google Reviews
             </a>
           </Button>
+
+          {/* Leave a Review Button */}
+          <Button
+            asChild
+            className="bg-[#D4AF37] text-[#0A0A0A] hover:bg-[#B8860B] rounded-none px-8 py-6 text-xs font-semibold tracking-[0.15em] uppercase border-2 border-[#D4AF37] hover:border-[#B8860B]"
+          >
+            <a
+              href="https://www.google.com/search?client=opera-gx&hs=Xgy&sca_esv=a9de2d2ce3c96c22&sxsrf=ANbL-n5wkAfJaMBaK9ye7PmqHECTjZ_uHA:1778538044605&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOUyTJM0d7FSjBgmsIxk5W2SDCaC5IHuDXSTCy0yn69Dtn-jA5VkF-GQ-mkVT69WDVPS7xdv7SX5wFPjc2pstHS0cUASCgVVQCtzu6wa6CggYEOao9A%3D%3D&q=Quartz+Perfection+Reviews&sa=X&ved=2ahUKEwif6PjCorKUAxXvNYYAHX53OxkQ0bkNegQIKBAH&biw=1875&bih=958&dpr=1#lrd=0x882b8b10a67297fd:0x73f05292c4a589ef,3"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3"
+              aria-label="Leave a review for Quartz Perfection on Google"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M12 20h9" />
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+              </svg>
+              Leave a Review
+            </a>
+          </Button>
         </div>
+        
+        {/* Encouraging text */}
+        <p className="text-center text-neutral-500 text-sm mt-4 max-w-md mx-auto">
+          Your feedback helps us improve and helps others discover quality craftsmanship.
+        </p>
       </div>
     </section>
   )
