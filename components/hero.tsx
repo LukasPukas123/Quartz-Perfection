@@ -34,8 +34,8 @@ export function Hero() {
         <div className="relative bg-black px-6 pt-2 pb-12">
           {/* Tagline */}
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-px bg-[#D4AF37]" />
-            <p className="text-[#D4AF37] text-[10px] font-semibold tracking-[0.25em] uppercase">
+            <div className="w-8 h-px bg-[#1A365D]" />
+            <p className="text-[#1A365D] text-[10px] font-semibold tracking-[0.25em] uppercase">
               Precision. Quality. Craftsmanship.
             </p>
           </div>
@@ -58,7 +58,7 @@ export function Hero() {
           {/* CTA */}
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 bg-[#D4AF37] hover:bg-[#B8860B] text-black text-[11px] font-semibold tracking-[0.2em] uppercase px-7 py-4 transition-all duration-300 group"
+            className="inline-flex items-center gap-3 bg-[#1A365D] hover:bg-[#0F2442] text-white text-[11px] font-semibold tracking-[0.2em] uppercase px-7 py-4 transition-all duration-300 group"
           >
             Get a Free Quote
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -86,8 +86,8 @@ export function Hero() {
         {/* Main content */}
         <div className="absolute bottom-24 left-0 z-20 px-12 lg:px-20 max-w-[65vw] lg:max-w-[55vw]">
           <div className="flex items-center gap-3 mb-5">
-            <div className="w-8 h-px bg-[#D4AF37]" />
-            <p className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase">
+            <div className="w-8 h-px bg-[#1A365D]" />
+            <p className="text-[#1A365D] text-xs font-semibold tracking-[0.25em] uppercase">
               Precision. Quality. Craftsmanship.
             </p>
           </div>
@@ -103,7 +103,7 @@ export function Hero() {
 
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 bg-[#D4AF37] hover:bg-[#B8860B] text-black text-xs font-semibold tracking-[0.2em] uppercase px-7 py-4 transition-all duration-300 group"
+            className="inline-flex items-center gap-3 bg-[#1A365D] hover:bg-[#0F2442] text-white text-xs font-semibold tracking-[0.2em] uppercase px-7 py-4 transition-all duration-300 group"
           >
             Get a Free Quote
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />

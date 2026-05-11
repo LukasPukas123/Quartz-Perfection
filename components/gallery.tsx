@@ -64,11 +64,11 @@ export function Gallery() {
         <ScrollReveal direction="up">
           <div className="text-center mb-14 md:mb-20">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="w-8 h-px bg-[#D4AF37]" />
-              <p className="text-[#D4AF37] font-semibold tracking-[0.25em] text-[10px] md:text-xs uppercase">
+              <div className="w-8 h-px bg-[#1A365D]" />
+              <p className="text-[#1A365D] font-semibold tracking-[0.25em] text-[10px] md:text-xs uppercase">
                 Portfolio
               </p>
-              <div className="w-8 h-px bg-[#D4AF37]" />
+              <div className="w-8 h-px bg-[#1A365D]" />
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A0A0A] tracking-tight">
               Recent Projects

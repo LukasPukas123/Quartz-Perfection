@@ -90,11 +90,11 @@ export function ReviewsCarousel() {
         <ScrollReveal direction="up">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="w-8 h-px bg-[#D4AF37]" />
-              <p className="text-[#D4AF37] font-semibold tracking-[0.25em] text-[10px] md:text-xs uppercase">
+              <div className="w-8 h-px bg-[#1A365D]" />
+              <p className="text-[#1A365D] font-semibold tracking-[0.25em] text-[10px] md:text-xs uppercase">
                 Testimonials
               </p>
-              <div className="w-8 h-px bg-[#D4AF37]" />
+              <div className="w-8 h-px bg-[#1A365D]" />
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A0A0A] tracking-tight">
               Trusted by Homeowners
@@ -125,14 +125,14 @@ export function ReviewsCarousel() {
               key={`${review.id}-${index}`}
               className="flex-shrink-0 w-[260px] md:w-[300px] mx-3"
             >
-              <div className="border border-neutral-200 bg-white p-6 flex flex-col justify-between h-[380px] md:h-[360px] hover:border-[#D4AF37]/50 transition-colors duration-300">
+              <div className="border border-neutral-200 bg-white p-6 flex flex-col justify-between h-[380px] md:h-[360px] hover:border-[#1A365D]/50 transition-colors duration-300">
                 {/* Stars */}
                 <div>
                   <div className="flex gap-0.5 mb-4">
                     {[...Array(review.rating)].map((_, i) => (
                       <Star
                         key={i}
-                        className="w-4 h-4 fill-[#D4AF37] text-[#D4AF37]"
+                        className="w-4 h-4 fill-[#1A365D] text-[#1A365D]"
                       />
                     ))}
                   </div>
@@ -194,7 +194,7 @@ export function ReviewsCarousel() {
           {/* Leave a Review Button */}
           <Button
             asChild
-            className="bg-[#D4AF37] text-[#0A0A0A] hover:bg-[#B8860B] rounded-none px-8 py-6 text-xs font-semibold tracking-[0.15em] uppercase border-2 border-[#D4AF37] hover:border-[#B8860B]"
+            className="bg-[#1A365D] text-white hover:bg-[#0F2442] rounded-none px-8 py-6 text-xs font-semibold tracking-[0.15em] uppercase border-2 border-[#1A365D] hover:border-[#0F2442]"
           >
             <a
               href="https://www.google.com/search?client=opera-gx&hs=Xgy&sca_esv=a9de2d2ce3c96c22&sxsrf=ANbL-n5wkAfJaMBaK9ye7PmqHECTjZ_uHA:1778538044605&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOUyTJM0d7FSjBgmsIxk5W2SDCaC5IHuDXSTCy0yn69Dtn-jA5VkF-GQ-mkVT69WDVPS7xdv7SX5wFPjc2pstHS0cUASCgVVQCtzu6wa6CggYEOao9A%3D%3D&q=Quartz+Perfection+Reviews&sa=X&ved=2ahUKEwif6PjCorKUAxXvNYYAHX53OxkQ0bkNegQIKBAH&biw=1875&bih=958&dpr=1#lrd=0x882b8b10a67297fd:0x73f05292c4a589ef,3"

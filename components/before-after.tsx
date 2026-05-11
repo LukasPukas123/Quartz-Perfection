@@ -42,11 +42,11 @@ export function BeforeAfter() {
         <ScrollReveal direction="up">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="w-8 h-px bg-[#D4AF37]" />
-              <p className="text-[#D4AF37] font-semibold tracking-[0.25em] text-[10px] md:text-xs uppercase">
+              <div className="w-8 h-px bg-[#1A365D]" />
+              <p className="text-[#1A365D] font-semibold tracking-[0.25em] text-[10px] md:text-xs uppercase">
                 Transformation
               </p>
-              <div className="w-8 h-px bg-[#D4AF37]" />
+              <div className="w-8 h-px bg-[#1A365D]" />
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A0A0A] mb-4 tracking-tight">
               See the Difference
@@ -76,7 +76,7 @@ export function BeforeAfter() {
                   className="object-cover"
                   draggable={false}
                 />
-                <div className="absolute bottom-4 right-4 bg-[#D4AF37] text-black px-4 py-2 text-xs font-semibold tracking-wider uppercase">
+                <div className="absolute bottom-4 right-4 bg-[#1A365D] text-white px-4 py-2 text-xs font-semibold tracking-wider uppercase">
                   After
                 </div>
               </div>

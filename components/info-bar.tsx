@@ -9,7 +9,7 @@ export function InfoBar() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 md:gap-16">
             {/* Free Inspections */}
             <div className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-[#D4AF37]" />
+              <CheckCircle className="w-4 h-4 text-[#1A365D]" />
               <span className="text-xs font-semibold text-white/80 tracking-wider uppercase">
                 Free Inspections
               </span>
@@ -17,7 +17,7 @@ export function InfoBar() {
 
             {/* Location */}
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-[#D4AF37]" />
+              <MapPin className="w-4 h-4 text-[#1A365D]" />
               <span className="text-xs font-semibold text-white/80 tracking-wider uppercase">
                 Kitchener, ON
               </span>
@@ -25,7 +25,7 @@ export function InfoBar() {
 
             {/* Services */}
             <div className="flex items-center gap-2">
-              <Home className="w-4 h-4 text-[#D4AF37]" />
+              <Home className="w-4 h-4 text-[#1A365D]" />
               <span className="text-xs font-semibold text-white/80 tracking-wider uppercase">
                 Quartz | Granite | Natural Stone
               </span>
