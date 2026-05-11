@@ -11,7 +11,7 @@ export function Hero() {
   }
 
   return (
-    <section className="relative w-full h-[100svh] min-h-[600px] overflow-hidden bg-black">
+    <section className="relative w-full h-[85svh] min-h-[550px] max-h-[900px] overflow-hidden bg-black">
 
       {/* Background photo */}
       <Image
@@ -47,8 +47,8 @@ export function Hero() {
 
         {/* Tagline */}
         <div className="flex items-center gap-3 mb-4 md:mb-5">
-          <div className="w-8 h-px bg-white/70" />
-          <p className="text-white/70 text-[10px] md:text-xs font-semibold tracking-[0.25em] uppercase">
+          <div className="w-8 h-px bg-[#D4AF37]" />
+          <p className="text-[#D4AF37] text-[10px] md:text-xs font-semibold tracking-[0.25em] uppercase">
             Precision. Quality. Craftsmanship.
           </p>
         </div>
@@ -71,7 +71,7 @@ export function Hero() {
         {/* CTA */}
         <Link
           href="/contact"
-          className="inline-flex items-center gap-3 border border-white/60 hover:border-white text-white text-[11px] md:text-xs font-semibold tracking-[0.2em] uppercase px-7 py-4 transition-all duration-300 hover:bg-white/10 group"
+          className="inline-flex items-center gap-3 bg-[#D4AF37] hover:bg-[#B8860B] text-black text-[11px] md:text-xs font-semibold tracking-[0.2em] uppercase px-7 py-4 transition-all duration-300 group"
         >
           Get a Free Quote
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />

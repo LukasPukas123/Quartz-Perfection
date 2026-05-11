@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 const galleryImages = [
   {
@@ -57,38 +58,49 @@ export function Gallery() {
   }
 
   return (
-    <section id="gallery" className="py-16 md:py-24 bg-white">
-      {/* Container with 15-20% margins on each side */}
-      <div className="mx-auto px-[5%] sm:px-[10%] md:px-[15%] lg:px-[18%]">
-        {/* Section Header - matching reference exactly */}
-        <div className="text-center mb-12 md:mb-16">
-          <p className="text-primary font-semibold tracking-[0.2em] text-sm mb-4 uppercase">
-            Our Work
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary tracking-tight">
-            Recent Projects
-          </h2>
-        </div>
-
-        {/* Gallery Grid - 3 columns, 2 rows, identical sizing */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-          {galleryImages.map((image, index) => (
-            <div
-              key={index}
-              className="relative cursor-pointer overflow-hidden rounded-md"
-              onClick={() => openLightbox(index)}
-            >
-              {/* Square-ish aspect ratio matching reference */}
-              <div className="aspect-[4/3] relative">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 40vw, 28vw"
-                  className="object-cover"
-                />
-              </div>
+    <section id="gallery" className="py-20 md:py-28 bg-white">
+      <div className="mx-auto px-[5%] sm:px-[8%] md:px-[12%] lg:px-[15%]">
+        {/* Section Header */}
+        <ScrollReveal direction="up">
+          <div className="text-center mb-14 md:mb-20">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-8 h-px bg-[#D4AF37]" />
+              <p className="text-[#D4AF37] font-semibold tracking-[0.25em] text-[10px] md:text-xs uppercase">
+                Portfolio
+              </p>
+              <div className="w-8 h-px bg-[#D4AF37]" />
             </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A0A0A] tracking-tight">
+              Recent Projects
+            </h2>
+          </div>
+        </ScrollReveal>
+
+        {/* Gallery Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+          {galleryImages.map((image, index) => (
+            <ScrollReveal key={index} direction="up" delay={index * 80}>
+              <div
+                className="relative cursor-pointer overflow-hidden group"
+                onClick={() => openLightbox(index)}
+              >
+                <div className="aspect-[4/3] relative">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-500 flex items-center justify-center">
+                    <span className="text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500 tracking-wide">
+                      {image.title}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
@@ -99,7 +111,6 @@ export function Gallery() {
           className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
           onClick={closeLightbox}
         >
-          {/* Close Button */}
           <button
             onClick={closeLightbox}
             className="absolute top-6 right-6 text-white/80 hover:text-white transition-colors z-50"
@@ -108,7 +119,6 @@ export function Gallery() {
             <X className="w-8 h-8" />
           </button>
 
-          {/* Previous Button */}
           <button
             onClick={(e) => {
               e.stopPropagation()
@@ -120,7 +130,6 @@ export function Gallery() {
             <ChevronLeft className="w-10 h-10" />
           </button>
 
-          {/* Image Container */}
           <div
             className="relative w-full h-full max-w-5xl max-h-[80vh] mx-16 md:mx-20"
             onClick={(e) => e.stopPropagation()}
@@ -142,7 +151,6 @@ export function Gallery() {
             </div>
           </div>
 
-          {/* Next Button */}
           <button
             onClick={(e) => {
               e.stopPropagation()
