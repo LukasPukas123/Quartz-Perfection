@@ -49,21 +49,21 @@ export function Navbar() {
                   className="block px-4 py-2 text-xs text-white/70 hover:text-[#D4AF37] hover:bg-neutral-800/50 tracking-wide"
                   onClick={() => setIsServicesOpen(false)}
                 >
-                  Natural Stone
+                  Natural Stone Countertops
                 </Link>
                 <Link
                   href="/services/quartz"
                   className="block px-4 py-2 text-xs text-white/70 hover:text-[#D4AF37] hover:bg-neutral-800/50 tracking-wide"
                   onClick={() => setIsServicesOpen(false)}
                 >
-                  Quartz
+                  Quartz Countertops
                 </Link>
                 <Link
                   href="/services/granite"
                   className="block px-4 py-2 text-xs text-white/70 hover:text-[#D4AF37] hover:bg-neutral-800/50 tracking-wide"
                   onClick={() => setIsServicesOpen(false)}
                 >
-                  Granite
+                  Granite Countertops
                 </Link>
               </div>
             </div>
