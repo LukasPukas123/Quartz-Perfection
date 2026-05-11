@@ -103,62 +103,68 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white ml-auto"
+            className="md:hidden text-white ml-auto z-[60] relative"
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-[#0A0A0A] border-t border-neutral-800 py-6">
-            <div className="flex flex-col gap-5">
-              <Link
-                href="/about"
-                className="text-white/80 text-xs font-medium tracking-[0.15em] hover:text-[#D4AF37] uppercase"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                About
-              </Link>
-              <Link
-                href="/services/natural-stone"
-                className="text-white/80 text-xs font-medium tracking-[0.15em] hover:text-[#D4AF37] uppercase"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Natural Stone
-              </Link>
-              <Link
-                href="/services/quartz"
-                className="text-white/80 text-xs font-medium tracking-[0.15em] hover:text-[#D4AF37] uppercase"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Quartz
-              </Link>
-              <Link
-                href="/services/granite"
-                className="text-white/80 text-xs font-medium tracking-[0.15em] hover:text-[#D4AF37] uppercase"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Granite
-              </Link>
-              <Link
-                href="/contact"
-                className="text-white/80 text-xs font-medium tracking-[0.15em] hover:text-[#D4AF37] uppercase"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Contact
-              </Link>
-              <div className="pt-2">
-                <Button
-                  asChild
-                  className="bg-[#D4AF37] hover:bg-[#B8860B] text-black rounded-none px-6 text-xs font-semibold tracking-[0.15em] uppercase w-full"
-                >
-                  <Link href="/contact">Free Quote</Link>
-                </Button>
-              </div>
-            </div>
+      {/* Mobile Menu — full-screen translucent overlay */}
+      <div
+        className={`
+          md:hidden fixed inset-0 z-40
+          bg-[#0A0A0A]/85 backdrop-blur-xl
+          flex flex-col items-center justify-center
+          transition-all duration-400 ease-in-out
+          ${isMobileMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+          }
+        `}
+      >
+        <nav className="flex flex-col items-center gap-10 w-full px-8">
+          {[
+            { label: "About", href: "/about" },
+            { label: "Natural Stone", href: "/services/natural-stone" },
+            { label: "Quartz", href: "/services/quartz" },
+            { label: "Granite", href: "/services/granite" },
+            { label: "Contact", href: "/contact" },
+          ].map((item, i) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`
+                text-white/70 hover:text-white font-black uppercase tracking-[0.12em]
+                text-[clamp(1.6rem,7vw,2.2rem)] leading-none
+                transition-all duration-300
+                ${isMobileMenuOpen
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4"
+                }
+              `}
+              style={{ transitionDelay: isMobileMenuOpen ? `${i * 60}ms` : "0ms" }}
+            >
+              {item.label}
+            </Link>
+          ))}
+
+          {/* CTA */}
+          <div
+            className={`mt-4 transition-all duration-300 ${isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+            style={{ transitionDelay: isMobileMenuOpen ? "360ms" : "0ms" }}
+          >
+            <Link
+              href="/contact"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="inline-flex items-center gap-3 border border-[#D4AF37] text-[#D4AF37] text-[11px] font-semibold tracking-[0.2em] uppercase px-8 py-4"
+            >
+              Free Quote
+            </Link>
           </div>
-        )}
+        </nav>
       </div>
     </nav>
   )
