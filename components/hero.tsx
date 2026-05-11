@@ -30,18 +30,6 @@ export function Hero() {
       {/* Subtle specular light strip along countertop edge */}
       <div className="absolute bottom-[38%] left-0 right-0 h-px bg-white/10 blur-sm" />
 
-      {/* Logo — top left */}
-      <div className="absolute top-6 left-6 md:top-8 md:left-10 z-20">
-        <Image
-          src="/images/Logo.png"
-          alt="Quartz Perfection"
-          width={140}
-          height={56}
-          className="h-10 md:h-12 w-auto object-contain brightness-0 invert"
-          priority
-        />
-      </div>
-
       {/* Main content — bottom left, matching reference layout */}
       <div className="absolute bottom-20 md:bottom-24 left-0 z-20 px-6 md:px-12 lg:px-20 max-w-[95vw] md:max-w-[65vw] lg:max-w-[55vw]">
 
