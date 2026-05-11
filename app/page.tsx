@@ -14,8 +14,8 @@ export default function Home() {
       <Hero />
       <OurServices />
       <ReviewsCarousel />
-      <BeforeAfter />
       <Gallery />
+      <BeforeAfter />
       <VideoSection />
       <Footer />
     </main>
