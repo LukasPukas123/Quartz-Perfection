@@ -3,6 +3,7 @@
 import { Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useEffect, useRef, useState } from "react"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 const reviews = [
   {
@@ -60,9 +61,6 @@ export function ReviewsCarousel() {
     const scrollContainer = scrollRef.current
     if (!scrollContainer) return
 
-    // Speed: pixels per frame (higher = faster)
-    // Desktop: slower, Mobile: faster
-    // Reduced by 25% from original values
     const speed = isMobile ? 1.125 : 0.6
     let animationId: number
     let scrollPosition = 0
@@ -70,56 +68,52 @@ export function ReviewsCarousel() {
     const animate = () => {
       if (!isPaused && scrollContainer) {
         scrollPosition += speed
-        
-        // Get the width of one set of reviews
         const singleSetWidth = scrollContainer.scrollWidth / 3
-        
-        // Reset seamlessly when we've scrolled past one complete set
         if (scrollPosition >= singleSetWidth) {
           scrollPosition = 0
         }
-        
         scrollContainer.style.transform = `translateX(-${scrollPosition}px)`
       }
       animationId = requestAnimationFrame(animate)
     }
 
     animationId = requestAnimationFrame(animate)
-    
     return () => cancelAnimationFrame(animationId)
   }, [isPaused, isMobile])
 
-  // Triple the reviews for seamless looping
   const tripleReviews = [...reviews, ...reviews, ...reviews]
 
   return (
-    <section id="reviews" className="py-16 bg-white overflow-hidden">
-      {/* Container with consistent 15-20% margins */}
-      <div className="mx-auto px-[5%] sm:px-[10%] md:px-[15%] lg:px-[18%]">
+    <section id="reviews" className="py-20 md:py-28 bg-[#FAFAFA] overflow-hidden">
+      <div className="mx-auto px-[5%] sm:px-[8%] md:px-[12%] lg:px-[15%]">
         {/* Header */}
-        <div className="text-center mb-10">
-          <p className="text-[#1F71B8] font-semibold tracking-[0.2em] text-sm mb-3 uppercase">
-            What Our Clients Say
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D2E52] tracking-tight">
-            Trusted by Homeowners
-          </h2>
-        </div>
+        <ScrollReveal direction="up">
+          <div className="text-center mb-14">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-8 h-px bg-[#D4AF37]" />
+              <p className="text-[#D4AF37] font-semibold tracking-[0.25em] text-[10px] md:text-xs uppercase">
+                Testimonials
+              </p>
+              <div className="w-8 h-px bg-[#D4AF37]" />
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A0A0A] tracking-tight">
+              Trusted by Homeowners
+            </h2>
+          </div>
+        </ScrollReveal>
       </div>
 
-      {/* Infinite Scrolling Reviews - full width with internal padding for effect */}
+      {/* Infinite Scrolling Reviews */}
       <div 
-        className="relative overflow-hidden px-[5%] sm:px-[10%] md:px-[12%] lg:px-[15%]"
+        className="relative overflow-hidden px-[5%] sm:px-[8%] md:px-[10%] lg:px-[12%]"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         onTouchStart={() => setIsPaused(true)}
         onTouchEnd={() => setIsPaused(false)}
       >
-        {/* Left edge blur overlay */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-24 lg:w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
-        
-        {/* Right edge blur overlay */}
-        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-24 lg:w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
+        {/* Edge fades */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-24 lg:w-32 bg-gradient-to-r from-[#FAFAFA] via-[#FAFAFA]/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-24 lg:w-32 bg-gradient-to-l from-[#FAFAFA] via-[#FAFAFA]/80 to-transparent z-10 pointer-events-none" />
         
         <div 
           ref={scrollRef}
@@ -129,30 +123,30 @@ export function ReviewsCarousel() {
           {tripleReviews.map((review, index) => (
             <div
               key={`${review.id}-${index}`}
-              className="flex-shrink-0 w-[220px] md:w-[240px] mx-2"
+              className="flex-shrink-0 w-[260px] md:w-[300px] mx-3"
             >
-              <div className="border border-gray-200 rounded-lg p-4 flex flex-col justify-between h-[400px] md:h-[380px] bg-white hover:shadow-lg transition-shadow">
+              <div className="border border-neutral-200 bg-white p-6 flex flex-col justify-between h-[380px] md:h-[360px] hover:border-[#D4AF37]/50 transition-colors duration-300">
                 {/* Stars */}
                 <div>
-                  <div className="flex gap-0.5 mb-2">
+                  <div className="flex gap-0.5 mb-4">
                     {[...Array(review.rating)].map((_, i) => (
                       <Star
                         key={i}
-                        className="w-4 h-4 fill-[#F7B928] text-[#F7B928]"
+                        className="w-4 h-4 fill-[#D4AF37] text-[#D4AF37]"
                       />
                     ))}
                   </div>
 
                   {/* Review Text */}
-                  <p className="text-gray-700 italic leading-snug text-sm">
+                  <p className="text-neutral-600 italic leading-relaxed text-sm">
                     {review.text}
                   </p>
                 </div>
 
                 {/* Author */}
-                <div className="mt-3 pt-3 border-t border-gray-100">
-                  <p className="font-semibold text-[#0D2E52] text-sm">{review.author}</p>
-                  <p className="text-gray-500 text-xs">{review.source}</p>
+                <div className="mt-4 pt-4 border-t border-neutral-100">
+                  <p className="font-semibold text-[#0A0A0A] text-sm">{review.author}</p>
+                  <p className="text-neutral-400 text-xs">{review.source}</p>
                 </div>
               </div>
             </div>
@@ -161,12 +155,12 @@ export function ReviewsCarousel() {
       </div>
 
       {/* Google Reviews Button */}
-      <div className="mx-auto px-[5%] sm:px-[10%] md:px-[15%] lg:px-[18%]">
-        <div className="flex justify-center mt-10">
+      <div className="mx-auto px-[5%] sm:px-[8%] md:px-[12%] lg:px-[15%]">
+        <div className="flex justify-center mt-12">
           <Button
             asChild
             variant="outline"
-            className="border-[#0D2E52] text-[#0D2E52] hover:bg-[#0D2E52] hover:text-white rounded-none px-8 py-6 text-sm font-medium tracking-wider"
+            className="border-[#0A0A0A] text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white rounded-none px-8 py-6 text-xs font-semibold tracking-[0.15em] uppercase"
           >
             <a
               href="https://google.com/maps"
@@ -192,7 +186,7 @@ export function ReviewsCarousel() {
                   d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                 />
               </svg>
-              READ ALL GOOGLE REVIEWS
+              Read All Google Reviews
             </a>
           </Button>
         </div>
