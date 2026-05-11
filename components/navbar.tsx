@@ -38,12 +38,15 @@ export function Navbar() {
                 />
               </button>
               <div
-                className={`absolute top-full left-0 mt-2 w-48 bg-[#1A1A1A] border border-neutral-800 py-2 transition-all duration-200 origin-top ${
+                className={`absolute top-full left-0 w-48 transition-all duration-200 origin-top ${
                   isServicesOpen
                     ? "opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
                     : "opacity-0 scale-y-95 -translate-y-1 pointer-events-none"
                 }`}
               >
+                {/* Invisible bridge covers the gap so hover stays active */}
+                <div className="h-2 w-full" />
+                <div className="bg-[#1A1A1A] border border-neutral-800 py-2">
                 <Link
                   href="/services/natural-stone"
                   className="block px-4 py-2 text-xs text-white/70 hover:text-[#D4AF37] hover:bg-neutral-800/50 tracking-wide"
@@ -65,6 +68,7 @@ export function Navbar() {
                 >
                   Granite Countertops
                 </Link>
+                </div>
               </div>
             </div>
           </div>
