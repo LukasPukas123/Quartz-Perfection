@@ -16,12 +16,13 @@ export function VideoSection() {
 
   return (
     <section className="py-16 md:py-24 bg-[#0D2E52]">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+      {/* Container with consistent 15-20% margins */}
+      <div className="mx-auto px-[5%] sm:px-[10%] md:px-[15%] lg:px-[18%]">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="text-white">
-            <p className="text-[#1F71B8] font-semibold tracking-wider text-sm mb-3">
-              WATCH US WORK
+            <p className="text-[#1F71B8] font-semibold tracking-[0.2em] text-sm mb-3 uppercase">
+              Watch Us Work
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance">
               Precision Installation in Action

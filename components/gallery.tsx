@@ -30,6 +30,11 @@ const galleryImages = [
     alt: "White quartz countertop with decorative tile backsplash",
     title: "Classic Style",
   },
+  {
+    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6713-eXkvS3QtyU2pJ5YLCAc9S3weqpdX9z.jpg",
+    alt: "Modern kitchen with dark cabinets and white quartz countertops",
+    title: "Luxury Design",
+  },
 ]
 
 export function Gallery() {
@@ -52,60 +57,36 @@ export function Gallery() {
   }
 
   return (
-    <section className="py-16 md:py-24 bg-white">
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <p className="text-[#1F71B8] font-semibold tracking-wider text-sm mb-3">
-            OUR PORTFOLIO
+    <section id="gallery" className="py-16 md:py-24 bg-white">
+      {/* Container with 15-20% margins on each side */}
+      <div className="mx-auto px-[5%] sm:px-[10%] md:px-[15%] lg:px-[18%]">
+        {/* Section Header - matching reference exactly */}
+        <div className="text-center mb-12 md:mb-16">
+          <p className="text-primary font-semibold tracking-[0.2em] text-sm mb-4 uppercase">
+            Our Work
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D2E52] mb-4 text-balance">
-            Craftsmanship You Can See
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary tracking-tight">
+            Recent Projects
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Browse through our collection of completed projects. Each installation showcases our commitment to quality, precision, and attention to detail. From kitchens to bathrooms, we bring your vision to life with stunning quartz surfaces.
-          </p>
         </div>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
-          {/* Large featured image */}
-          <div
-            className="md:col-span-2 md:row-span-2 relative group cursor-pointer overflow-hidden rounded-xl"
-            onClick={() => openLightbox(0)}
-          >
-            <div className="aspect-[4/3] md:aspect-auto md:h-full relative">
-              <Image
-                src={galleryImages[0].src}
-                alt={galleryImages[0].alt}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <h3 className="text-xl font-semibold">{galleryImages[0].title}</h3>
-              </div>
-            </div>
-          </div>
-
-          {/* Smaller images */}
-          {galleryImages.slice(1).map((image, index) => (
+        {/* Gallery Grid - 3 columns, 2 rows, identical sizing */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          {galleryImages.map((image, index) => (
             <div
               key={index}
-              className="relative group cursor-pointer overflow-hidden rounded-xl"
-              onClick={() => openLightbox(index + 1)}
+              className="relative cursor-pointer overflow-hidden rounded-md"
+              onClick={() => openLightbox(index)}
             >
+              {/* Square-ish aspect ratio matching reference */}
               <div className="aspect-[4/3] relative">
                 <Image
                   src={image.src}
                   alt={image.alt}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 40vw, 28vw"
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-lg font-semibold">{image.title}</h3>
-                </div>
               </div>
             </div>
           ))}
@@ -121,7 +102,7 @@ export function Gallery() {
           {/* Close Button */}
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-50"
+            className="absolute top-6 right-6 text-white/80 hover:text-white transition-colors z-50"
             aria-label="Close lightbox"
           >
             <X className="w-8 h-8" />
@@ -133,15 +114,15 @@ export function Gallery() {
               e.stopPropagation()
               goToPrevious()
             }}
-            className="absolute left-4 text-white hover:text-gray-300 transition-colors z-50"
+            className="absolute left-4 md:left-8 text-white/80 hover:text-white transition-colors z-50"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-10 h-10" />
           </button>
 
-          {/* Image */}
+          {/* Image Container */}
           <div
-            className="relative w-full h-full max-w-5xl max-h-[80vh] mx-16"
+            className="relative w-full h-full max-w-5xl max-h-[80vh] mx-16 md:mx-20"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
@@ -149,12 +130,13 @@ export function Gallery() {
               alt={galleryImages[currentIndex].alt}
               fill
               className="object-contain"
+              sizes="90vw"
             />
-            <div className="absolute bottom-0 left-0 right-0 text-center py-4">
-              <h3 className="text-white text-xl font-semibold">
+            <div className="absolute -bottom-12 left-0 right-0 text-center">
+              <h3 className="text-white text-lg font-semibold">
                 {galleryImages[currentIndex].title}
               </h3>
-              <p className="text-gray-400 text-sm mt-1">
+              <p className="text-white/60 text-sm mt-1">
                 {currentIndex + 1} of {galleryImages.length}
               </p>
             </div>
@@ -166,7 +148,7 @@ export function Gallery() {
               e.stopPropagation()
               goToNext()
             }}
-            className="absolute right-4 text-white hover:text-gray-300 transition-colors z-50"
+            className="absolute right-4 md:right-8 text-white/80 hover:text-white transition-colors z-50"
             aria-label="Next image"
           >
             <ChevronRight className="w-10 h-10" />

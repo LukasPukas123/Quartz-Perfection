@@ -10,7 +10,7 @@ export default function AboutPage() {
       
       {/* Hero Section */}
       <section className="bg-[#0D2E52] pt-32 pb-20">
-        <div className="container mx-auto px-4 text-center">
+        <div className="mx-auto px-[5%] sm:px-[10%] md:px-[15%] lg:px-[18%] text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
             About Us
           </h1>
@@ -22,7 +22,7 @@ export default function AboutPage() {
 
       {/* About Content Placeholder */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="mx-auto px-[5%] sm:px-[10%] md:px-[15%] lg:px-[18%]">
           <div className="max-w-3xl mx-auto text-center">
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-12">
               <h2 className="text-2xl font-semibold text-[#0D2E52] mb-4">

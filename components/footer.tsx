@@ -4,7 +4,8 @@ import Image from "next/image"
 export function Footer() {
   return (
     <footer className="bg-[#0D2E52] text-white py-12">
-      <div className="container mx-auto px-4">
+      {/* Container with consistent 15-20% margins */}
+      <div className="mx-auto px-[5%] sm:px-[10%] md:px-[15%] lg:px-[18%]">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and Description */}
           <div className="md:col-span-1">
