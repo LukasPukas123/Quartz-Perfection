@@ -4,28 +4,28 @@ import { ArrowRight } from "lucide-react"
 
 const services = [
   {
-    title: "Quartz Surface Installation",
+    title: "Natural Stone",
     description:
-      "Expert installation of premium quartz surfaces with precision craftsmanship.",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6713-eXkvS3QtyU2pJ5YLCAc9S3weqpdX9z.jpg",
-    href: "/services/quartz-installation",
+      "One-of-a-kind slabs sourced from the world's finest quarries. Discover marble, quartzite, soapstone, and more.",
+    cta: "Explore Natural Stone",
+    image: "/images/natural-stone-countertop.jpg",
+    href: "/services/natural-stone",
   },
   {
-    title: "Countertop Design",
+    title: "Quartz",
     description:
-      "Custom design services with expert guidance on materials and styles.",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6715-GOSDoSyNdYJ4z3XTrHnSHvoUp8iF5p.jpg",
-    href: "/services/countertop-design",
+      "The ideal blend of beauty and practicality. Hundreds of colors, no sealing required, and built to handle everyday life.",
+    cta: "Explore Quartz",
+    image: "/images/quartz-countertop.jpg",
+    href: "/services/quartz",
   },
   {
-    title: "Stone & Granite Countertops",
+    title: "Granite",
     description:
-      "Beautiful natural stone that adds timeless elegance to your home.",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6718-Af5RyNofHUhXeZfPcCZKXHTQSnvdyD.jpg",
-    href: "/services/stone-granite",
+      "Naturally heat resistant and enduringly beautiful. Granite brings depth and character to kitchens and bathrooms.",
+    cta: "Explore Granite",
+    image: "/images/granite-countertop.jpg",
+    href: "/services/granite",
   },
 ]
 
@@ -72,7 +72,7 @@ export function OurServices() {
                   {service.description}
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-primary text-sm font-medium group-hover:gap-2.5 transition-all duration-200">
-                  Learn More
+                  {service.cta}
                   <ArrowRight className="w-3.5 h-3.5" />
                 </span>
               </div>
