@@ -104,7 +104,7 @@ export function ReviewsCarousel() {
       </div>
 
       {/* Infinite Scrolling Reviews */}
-      <div 
+      <div
         className="relative overflow-hidden px-[5%] sm:px-[8%] md:px-[10%] lg:px-[12%]"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
@@ -114,8 +114,8 @@ export function ReviewsCarousel() {
         {/* Edge fades */}
         <div className="absolute left-0 top-0 bottom-0 w-16 md:w-24 lg:w-32 bg-gradient-to-r from-[#FAFAFA] via-[#FAFAFA]/80 to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-16 md:w-24 lg:w-32 bg-gradient-to-l from-[#FAFAFA] via-[#FAFAFA]/80 to-transparent z-10 pointer-events-none" />
-        
-        <div 
+
+        <div
           ref={scrollRef}
           className="flex will-change-transform"
           style={{ transform: "translateX(0)" }}
@@ -164,7 +164,7 @@ export function ReviewsCarousel() {
             className="border-[#0A0A0A] text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white rounded-none px-8 py-6 text-xs font-semibold tracking-[0.15em] uppercase"
           >
             <a
-              href="https://www.google.com/search?client=opera-gx&hs=Xgy&sca_esv=a9de2d2ce3c96c22&sxsrf=ANbL-n5wkAfJaMBaK9ye7PmqHECTjZ_uHA:1778538044605&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOUyTJM0d7FSjBgmsIxk5W2SDCaC5IHuDXSTCy0yn69Dtn-jA5VkF-GQ-mkVT69WDVPS7xdv7SX5wFPjc2pstHS0cUASCgVVQCtzu6wa6CggYEOao9A%3D%3D&q=Quartz+Perfection+Reviews&sa=X&ved=2ahUKEwif6PjCorKUAxXvNYYAHX53OxkQ0bkNegQIKBAH&biw=1875&bih=958&dpr=1#lrd=0x882b8b10a67297fd:0x73f05292c4a589ef,3"
+              href="https://www.google.com/search?hs=Xgy&sxsrf=ANbL-n5wkAfJaMBaK9ye7PmqHECTjZ_uHA:1778538044605&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOUyTJM0d7FSjBgmsIxk5W2SDCaC5IHuDXSTCy0yn69Dtn-jA5VkF-GQ-mkVT69WDVPS7xdv7SX5wFPjc2pstHS0cUASCgVVQCtzu6wa6CggYEOao9A%3D%3D&q=Quartz+Perfection+Reviews&zx=1778538097438#lrd="
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3"
@@ -211,7 +211,7 @@ export function ReviewsCarousel() {
             </a>
           </Button>
         </div>
-        
+
         {/* Encouraging text */}
         <p className="text-center text-neutral-500 text-sm mt-4 max-w-md mx-auto">
           Your feedback helps us improve and helps others discover quality craftsmanship.
