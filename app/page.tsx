@@ -12,6 +12,7 @@ export default function Home() {
   return (
     <main>
       <Navbar />
+      {/* Hero sits behind the translucent fixed navbar intentionally */}
       <Hero />
       <InfoBar />
       <OurServices />

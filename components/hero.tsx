@@ -11,7 +11,7 @@ export function Hero() {
   }
 
   return (
-    <section className="relative w-full h-[85svh] min-h-[550px] max-h-[900px] overflow-hidden bg-black">
+    <section className="relative w-full h-[64svh] md:h-screen md:min-h-[700px] md:max-h-none min-h-[400px] overflow-hidden bg-black">
 
       {/* Background photo */}
       <Image

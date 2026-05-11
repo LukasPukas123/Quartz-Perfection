@@ -11,11 +11,11 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   return (
-    <nav className="sticky top-0 left-0 right-0 z-50 bg-[#0A0A0A] border-b border-neutral-800">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0A]/70 backdrop-blur-md border-b border-neutral-800/50">
       <div className="mx-auto px-[5%] sm:px-[8%] md:px-[12%] lg:px-[15%]">
         <div className="flex items-center justify-between py-4">
           {/* Left Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-8 flex-1 justify-end pr-16">
             <Link
               href="/about"
               className="text-white/80 text-xs font-medium tracking-[0.15em] hover:text-[#D4AF37] transition-colors uppercase"
@@ -74,7 +74,7 @@ export function Navbar() {
           </div>
 
           {/* Center Logo */}
-          <Link href="/" className="absolute left-1/2 -translate-x-1/2">
+          <Link href="/" className="absolute left-1/2 -translate-x-1/2 z-10">
             <Image
               src="/images/Logo.png"
               alt="Quartz Perfection"
@@ -85,13 +85,7 @@ export function Navbar() {
           </Link>
 
           {/* Right Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            <Link
-              href="/financing"
-              className="text-white/80 text-xs font-medium tracking-[0.15em] hover:text-[#D4AF37] transition-colors uppercase"
-            >
-              Financing
-            </Link>
+          <div className="hidden md:flex items-center gap-8 flex-1 pl-16">
             <Link
               href="/contact"
               className="text-white/80 text-xs font-medium tracking-[0.15em] hover:text-[#D4AF37] transition-colors uppercase"
@@ -146,13 +140,6 @@ export function Navbar() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Granite
-              </Link>
-              <Link
-                href="/financing"
-                className="text-white/80 text-xs font-medium tracking-[0.15em] hover:text-[#D4AF37] uppercase"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Financing
               </Link>
               <Link
                 href="/contact"
