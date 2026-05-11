@@ -2,6 +2,7 @@
 
 import { Play } from "lucide-react"
 import { useState, useRef } from "react"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -20,6 +21,7 @@ export function VideoSection() {
       <div className="mx-auto px-[5%] sm:px-[10%] md:px-[15%] lg:px-[18%]">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
+          <ScrollReveal direction="left">
           <div className="text-white">
             <p className="text-[#1F71B8] font-semibold tracking-[0.2em] text-sm mb-3 uppercase">
               Watch Us Work
@@ -49,8 +51,10 @@ export function VideoSection() {
               </li>
             </ul>
           </div>
+          </ScrollReveal>
 
           {/* Video */}
+          <ScrollReveal direction="right">
           <div className="relative">
             <div className="relative aspect-[9/16] max-w-sm mx-auto rounded-2xl overflow-hidden shadow-2xl">
               <video
@@ -90,6 +94,7 @@ export function VideoSection() {
             <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-[#1F71B8]/30 rounded-2xl -z-10" />
             <div className="absolute -bottom-4 -left-4 w-24 h-24 border-2 border-[#1F71B8]/30 rounded-2xl -z-10" />
           </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

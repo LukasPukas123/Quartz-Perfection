@@ -3,6 +3,7 @@
 import { Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useEffect, useRef, useState } from "react"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 const reviews = [
   {
@@ -97,14 +98,16 @@ export function ReviewsCarousel() {
       {/* Container with consistent 15-20% margins */}
       <div className="mx-auto px-[5%] sm:px-[10%] md:px-[15%] lg:px-[18%]">
         {/* Header */}
-        <div className="text-center mb-10">
-          <p className="text-[#1F71B8] font-semibold tracking-[0.2em] text-sm mb-3 uppercase">
-            What Our Clients Say
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D2E52] tracking-tight">
-            Trusted by Homeowners
-          </h2>
-        </div>
+        <ScrollReveal direction="up">
+          <div className="text-center mb-10">
+            <p className="text-[#1F71B8] font-semibold tracking-[0.2em] text-sm mb-3 uppercase">
+              What Our Clients Say
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D2E52] tracking-tight">
+              Trusted by Homeowners
+            </h2>
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* Infinite Scrolling Reviews - full width with internal padding for effect */}

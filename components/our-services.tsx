@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 const services = [
   {
@@ -35,20 +36,22 @@ export function OurServices() {
       {/* Container with 15-20% margins */}
       <div className="mx-auto px-[5%] sm:px-[10%] md:px-[15%] lg:px-[18%]">
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-14">
-          <p className="text-primary font-semibold tracking-[0.2em] text-xs mb-3 uppercase">
-            What We Do
-          </p>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-secondary tracking-tight">
-            Our Services
-          </h2>
-        </div>
+        <ScrollReveal direction="up">
+          <div className="text-center mb-10 md:mb-14">
+            <p className="text-primary font-semibold tracking-[0.2em] text-xs mb-3 uppercase">
+              What We Do
+            </p>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-secondary tracking-tight">
+              Our Services
+            </h2>
+          </div>
+        </ScrollReveal>
 
         {/* Services Grid - wider, thinner cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-5 lg:gap-8">
           {services.map((service, index) => (
+            <ScrollReveal key={index} direction="up" delay={index * 100}>
             <Link
-              key={index}
               href={service.href}
               className="group block cursor-pointer"
             >
@@ -77,6 +80,7 @@ export function OurServices() {
                 </span>
               </div>
             </Link>
+            </ScrollReveal>
           ))}
         </div>
       </div>

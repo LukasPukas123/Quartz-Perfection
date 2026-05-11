@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function BeforeAfter() {
   const [sliderPosition, setSliderPosition] = useState(50)
@@ -39,19 +40,22 @@ export function BeforeAfter() {
       {/* Container with consistent 15-20% margins */}
       <div className="mx-auto px-[5%] sm:px-[10%] md:px-[15%] lg:px-[18%]">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <p className="text-[#1F71B8] font-semibold tracking-[0.2em] text-sm mb-3 uppercase">
-            The Transformation
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D2E52] mb-4 tracking-tight">
-            See the Difference We Make
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Our expert team transforms ordinary kitchens into stunning spaces. Drag the slider to see how we upgraded this kitchen with beautiful new quartz countertops, bringing elegance and durability to the heart of the home.
-          </p>
-        </div>
+        <ScrollReveal direction="up">
+          <div className="text-center mb-12">
+            <p className="text-[#1F71B8] font-semibold tracking-[0.2em] text-sm mb-3 uppercase">
+              The Transformation
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D2E52] mb-4 tracking-tight">
+              See the Difference We Make
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Our expert team transforms ordinary kitchens into stunning spaces. Drag the slider to see how we upgraded this kitchen with beautiful new quartz countertops, bringing elegance and durability to the heart of the home.
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Before/After Slider */}
+        <ScrollReveal direction="up" delay={100}>
         <div className="max-w-4xl mx-auto">
           <div
             ref={containerRef}
@@ -118,6 +122,7 @@ export function BeforeAfter() {
             Drag the slider left or right to compare
           </p>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   )
