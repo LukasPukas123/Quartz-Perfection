@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
+import { InfoBar } from "@/components/info-bar"
 import { OurServices } from "@/components/our-services"
 import { ReviewsCarousel } from "@/components/reviews-carousel"
 import { BeforeAfter } from "@/components/before-after"
@@ -12,6 +13,7 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
+      <InfoBar />
       <OurServices />
       <ReviewsCarousel />
       <Gallery />
