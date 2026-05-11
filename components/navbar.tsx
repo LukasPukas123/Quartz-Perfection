@@ -22,39 +22,50 @@ export function Navbar() {
             >
               About
             </Link>
-            <div className="relative">
+            <div
+              className="relative"
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onMouseLeave={() => setIsServicesOpen(false)}
+            >
               <button
-                onClick={() => setIsServicesOpen(!isServicesOpen)}
                 className="flex items-center gap-1 text-white/80 text-xs font-medium tracking-[0.15em] hover:text-[#D4AF37] transition-colors uppercase"
+                aria-haspopup="true"
+                aria-expanded={isServicesOpen}
               >
                 Services
-                <ChevronDown className="w-3 h-3" />
+                <ChevronDown
+                  className={`w-3 h-3 transition-transform duration-200 ${isServicesOpen ? "rotate-180" : "rotate-0"}`}
+                />
               </button>
-              {isServicesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-[#1A1A1A] border border-neutral-800 py-2">
-                  <Link
-                    href="/services/natural-stone"
-                    className="block px-4 py-2 text-xs text-white/70 hover:text-[#D4AF37] hover:bg-neutral-800/50 tracking-wide"
-                    onClick={() => setIsServicesOpen(false)}
-                  >
-                    Natural Stone
-                  </Link>
-                  <Link
-                    href="/services/quartz"
-                    className="block px-4 py-2 text-xs text-white/70 hover:text-[#D4AF37] hover:bg-neutral-800/50 tracking-wide"
-                    onClick={() => setIsServicesOpen(false)}
-                  >
-                    Quartz
-                  </Link>
-                  <Link
-                    href="/services/granite"
-                    className="block px-4 py-2 text-xs text-white/70 hover:text-[#D4AF37] hover:bg-neutral-800/50 tracking-wide"
-                    onClick={() => setIsServicesOpen(false)}
-                  >
-                    Granite
-                  </Link>
-                </div>
-              )}
+              <div
+                className={`absolute top-full left-0 mt-2 w-48 bg-[#1A1A1A] border border-neutral-800 py-2 transition-all duration-200 origin-top ${
+                  isServicesOpen
+                    ? "opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
+                    : "opacity-0 scale-y-95 -translate-y-1 pointer-events-none"
+                }`}
+              >
+                <Link
+                  href="/services/natural-stone"
+                  className="block px-4 py-2 text-xs text-white/70 hover:text-[#D4AF37] hover:bg-neutral-800/50 tracking-wide"
+                  onClick={() => setIsServicesOpen(false)}
+                >
+                  Natural Stone
+                </Link>
+                <Link
+                  href="/services/quartz"
+                  className="block px-4 py-2 text-xs text-white/70 hover:text-[#D4AF37] hover:bg-neutral-800/50 tracking-wide"
+                  onClick={() => setIsServicesOpen(false)}
+                >
+                  Quartz
+                </Link>
+                <Link
+                  href="/services/granite"
+                  className="block px-4 py-2 text-xs text-white/70 hover:text-[#D4AF37] hover:bg-neutral-800/50 tracking-wide"
+                  onClick={() => setIsServicesOpen(false)}
+                >
+                  Granite
+                </Link>
+              </div>
             </div>
           </div>
 
