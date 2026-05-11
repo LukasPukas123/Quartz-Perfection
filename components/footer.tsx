@@ -63,16 +63,15 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4 tracking-wider">CONTACT US</h3>
             <div className="flex flex-col gap-2 text-white/70 text-sm">
-              <p>123 Quartz Lane</p>
-              <p>Columbus, OH 43215</p>
+              <p>Ontario, Canada</p>
               <p className="mt-2">
-                <a href="tel:+16145551234" className="hover:text-white transition-colors">
-                  (614) 555-1234
+                <a href="tel:+12265078130" className="hover:text-white transition-colors">
+                  +1 (226) 507-8130
                 </a>
               </p>
               <p>
-                <a href="mailto:info@quartzperfection.com" className="hover:text-white transition-colors">
-                  info@quartzperfection.com
+                <a href="https://www.quartzperfection.ca" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  www.quartzperfection.ca
                 </a>
               </p>
             </div>
