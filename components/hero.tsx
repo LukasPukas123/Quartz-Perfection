@@ -2,50 +2,90 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, ArrowRight } from "lucide-react"
 
 export function Hero() {
-  const scrollToReviews = () => {
-    const reviewsSection = document.getElementById("reviews")
-    if (reviewsSection) {
-      reviewsSection.scrollIntoView({ behavior: "smooth" })
-    }
+  const scrollToNext = () => {
+    const next = document.getElementById("reviews") ?? document.querySelector("main section:nth-child(2)")
+    if (next) next.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
-    <section className="relative h-[calc(100vh-80px)] flex items-center justify-center bg-white">
-      {/* Background subtle pattern */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white" />
+    <section className="relative w-full h-[100svh] min-h-[600px] overflow-hidden bg-black">
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 -mt-16">
-        {/* Center Logo */}
+      {/* Background photo */}
+      <Image
+        src="/images/hero-bg.jpg"
+        alt="Polished quartz countertop with dramatic lighting"
+        fill
+        priority
+        className="object-cover object-center"
+        sizes="100vw"
+      />
+
+      {/* Layered overlays — left vignette + bottom fade */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-black/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
+
+      {/* Subtle specular light strip along countertop edge */}
+      <div className="absolute bottom-[38%] left-0 right-0 h-px bg-white/10 blur-sm" />
+
+      {/* Logo — top left */}
+      <div className="absolute top-6 left-6 md:top-8 md:left-10 z-20">
         <Image
-          src="/images/CenterLogo.png"
+          src="/images/Logo.png"
           alt="Quartz Perfection"
-          width={400}
-          height={300}
-          className="w-56 md:w-72 lg:w-80 h-auto mb-6"
+          width={140}
+          height={56}
+          className="h-10 md:h-12 w-auto object-contain brightness-0 invert"
           priority
         />
-
-        {/* CTA Button */}
-        <Button
-          asChild
-          className="bg-[#1F71B8] hover:bg-[#1F71B8]/90 text-white rounded-none px-10 py-6 text-sm font-medium tracking-widest"
-        >
-          <Link href="/contact">GET A FREE QUOTE</Link>
-        </Button>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Main content — bottom left, matching reference layout */}
+      <div className="absolute bottom-20 md:bottom-24 left-0 z-20 px-6 md:px-12 lg:px-20 max-w-[95vw] md:max-w-[65vw] lg:max-w-[55vw]">
+
+        {/* Tagline */}
+        <div className="flex items-center gap-3 mb-4 md:mb-5">
+          <div className="w-8 h-px bg-white/70" />
+          <p className="text-white/70 text-[10px] md:text-xs font-semibold tracking-[0.25em] uppercase">
+            Precision. Quality. Craftsmanship.
+          </p>
+        </div>
+
+        {/* Headline */}
+        <h1 className="font-sans font-black uppercase leading-[0.92] tracking-tight mb-5 md:mb-6">
+          <span className="block text-white text-[clamp(2.6rem,9vw,6rem)]">
+            Surfaces Built
+          </span>
+          <span className="block text-white/70 text-[clamp(2.6rem,9vw,6rem)]">
+            To Last Forever.
+          </span>
+        </h1>
+
+        {/* Descriptor */}
+        <p className="text-white/60 text-sm md:text-base leading-relaxed mb-8 md:mb-10 max-w-md font-sans">
+          Premium quartz, granite, and natural stone countertops installed by skilled craftsmen in Kitchener, Ontario. Free inspections available.
+        </p>
+
+        {/* CTA */}
+        <Link
+          href="/contact"
+          className="inline-flex items-center gap-3 border border-white/60 hover:border-white text-white text-[11px] md:text-xs font-semibold tracking-[0.2em] uppercase px-7 py-4 transition-all duration-300 hover:bg-white/10 group"
+        >
+          Get a Free Quote
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+        </Link>
+      </div>
+
+      {/* Scroll indicator — bottom center */}
       <button
-        onClick={scrollToReviews}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#0D2E52]/60 hover:text-[#0D2E52] transition-colors cursor-pointer"
+        onClick={scrollToNext}
+        aria-label="Scroll down"
+        className="absolute bottom-7 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 text-white/50 hover:text-white/90 transition-colors duration-300 cursor-pointer"
       >
-        <span className="text-xs font-medium tracking-widest">SCROLL</span>
-        <ChevronDown className="w-5 h-5 animate-bounce" />
+        <span className="text-[10px] font-semibold tracking-[0.3em] uppercase">Scroll</span>
+        <ChevronDown className="w-4 h-4 animate-bounce" />
       </button>
     </section>
   )
