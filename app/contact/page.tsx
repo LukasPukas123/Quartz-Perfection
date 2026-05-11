@@ -43,10 +43,10 @@ export default function ContactPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="bg-[#0D2E52] pt-32 pb-16">
+      <section className="bg-[#0F2D4A] pt-32 pb-16">
         <div className="mx-auto px-[5%] sm:px-[10%] md:px-[15%] lg:px-[18%] text-center">
           <ScrollReveal direction="up">
-            <p className="text-[#1F71B8] font-semibold tracking-[0.2em] text-sm mb-4 uppercase">
+            <p className="text-[#2B75B8] font-semibold tracking-[0.2em] text-sm mb-4 uppercase">
               Contact Quartz Perfection
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight text-balance">
@@ -68,7 +68,7 @@ export default function ContactPage() {
             <div className="lg:col-span-3">
               <ScrollReveal direction="left">
                 <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 md:p-10">
-                  <h2 className="text-2xl md:text-3xl font-bold text-[#0D2E52] mb-2">
+                  <h2 className="text-2xl md:text-3xl font-bold text-[#0F2D4A] mb-2">
                     Request a Quote
                   </h2>
                   <p className="text-gray-600 mb-8">
@@ -80,7 +80,7 @@ export default function ContactPage() {
                       <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <CheckCircle className="w-8 h-8 text-green-600" />
                       </div>
-                      <h3 className="text-2xl font-bold text-[#0D2E52] mb-3">Thank You!</h3>
+                      <h3 className="text-2xl font-bold text-[#0F2D4A] mb-3">Thank You!</h3>
                       <p className="text-gray-600 mb-6">
                         Your quote request has been received. We will be in touch shortly.
                       </p>
@@ -89,7 +89,7 @@ export default function ContactPage() {
                           setIsSubmitted(false)
                           setFormData({ name: "", email: "", phone: "", material: "", projectType: "", message: "" })
                         }}
-                        className="text-[#1F71B8] font-semibold hover:underline"
+                        className="text-[#2B75B8] font-semibold hover:underline"
                       >
                         Submit another request
                       </button>
@@ -108,7 +108,7 @@ export default function ContactPage() {
                             required
                             value={formData.name}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#1F71B8] focus:ring-2 focus:ring-[#1F71B8]/20 outline-none transition-all"
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2B75B8] focus:ring-2 focus:ring-[#2B75B8]/20 outline-none transition-all"
                             placeholder="John Doe"
                           />
                         </div>
@@ -123,7 +123,7 @@ export default function ContactPage() {
                             required
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#1F71B8] focus:ring-2 focus:ring-[#1F71B8]/20 outline-none transition-all"
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2B75B8] focus:ring-2 focus:ring-[#2B75B8]/20 outline-none transition-all"
                             placeholder="john@example.com"
                           />
                         </div>
@@ -140,7 +140,7 @@ export default function ContactPage() {
                             name="phone"
                             value={formData.phone}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#1F71B8] focus:ring-2 focus:ring-[#1F71B8]/20 outline-none transition-all"
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2B75B8] focus:ring-2 focus:ring-[#2B75B8]/20 outline-none transition-all"
                             placeholder="(226) 555-1234"
                           />
                         </div>
@@ -153,7 +153,7 @@ export default function ContactPage() {
                             name="material"
                             value={formData.material}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#1F71B8] focus:ring-2 focus:ring-[#1F71B8]/20 outline-none transition-all bg-white"
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2B75B8] focus:ring-2 focus:ring-[#2B75B8]/20 outline-none transition-all bg-white"
                           >
                             <option value="">Select a material</option>
                             <option value="natural-stone">Natural Stone</option>
@@ -173,7 +173,7 @@ export default function ContactPage() {
                           name="projectType"
                           value={formData.projectType}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#1F71B8] focus:ring-2 focus:ring-[#1F71B8]/20 outline-none transition-all bg-white"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2B75B8] focus:ring-2 focus:ring-[#2B75B8]/20 outline-none transition-all bg-white"
                         >
                           <option value="">Select project type</option>
                           <option value="kitchen">Kitchen Countertops</option>
@@ -194,7 +194,7 @@ export default function ContactPage() {
                           rows={4}
                           value={formData.message}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#1F71B8] focus:ring-2 focus:ring-[#1F71B8]/20 outline-none transition-all resize-none"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2B75B8] focus:ring-2 focus:ring-[#2B75B8]/20 outline-none transition-all resize-none"
                           placeholder="Tell us about your project, dimensions, timeline, or any questions you have..."
                         />
                       </div>
@@ -202,7 +202,7 @@ export default function ContactPage() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-[#1F71B8] text-white py-4 rounded-lg font-semibold hover:bg-[#0D2E52] transition-colors flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                        className="w-full bg-[#2B75B8] text-white py-4 rounded-lg font-semibold hover:bg-[#0F2D4A] transition-colors flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                       >
                         {isSubmitting ? (
                           "Sending..."
@@ -223,7 +223,7 @@ export default function ContactPage() {
             <div className="lg:col-span-2 space-y-6">
               <ScrollReveal direction="right">
                 {/* Owner Card */}
-                <div className="bg-gradient-to-br from-[#0D2E52] to-[#1F71B8] text-white p-8 rounded-2xl">
+                <div className="bg-gradient-to-br from-[#0F2D4A] to-[#2B75B8] text-white p-8 rounded-2xl">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center">
                       <span className="text-xl font-bold">A</span>
@@ -242,35 +242,35 @@ export default function ContactPage() {
               <ScrollReveal direction="right" delay={100}>
                 {/* Quick Contact */}
                 <div className="bg-white border border-gray-200 p-8 rounded-2xl">
-                  <h3 className="text-lg font-bold text-[#0D2E52] mb-6">Quick Contact</h3>
+                  <h3 className="text-lg font-bold text-[#0F2D4A] mb-6">Quick Contact</h3>
                   <div className="space-y-5">
                     <a href="tel:+12265078130" className="flex items-center gap-4 group">
-                      <div className="w-10 h-10 bg-[#1F71B8]/10 rounded-lg flex items-center justify-center group-hover:bg-[#1F71B8]/20 transition-colors">
-                        <Phone className="w-5 h-5 text-[#1F71B8]" />
+                      <div className="w-10 h-10 bg-[#2B75B8]/10 rounded-lg flex items-center justify-center group-hover:bg-[#2B75B8]/20 transition-colors">
+                        <Phone className="w-5 h-5 text-[#2B75B8]" />
                       </div>
                       <div>
                         <p className="text-xs text-gray-500 uppercase tracking-wider">Phone</p>
-                        <p className="text-[#0D2E52] font-semibold group-hover:text-[#1F71B8] transition-colors">
+                        <p className="text-[#0F2D4A] font-semibold group-hover:text-[#2B75B8] transition-colors">
                           +1 (226) 507-8130
                         </p>
                       </div>
                     </a>
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 bg-[#1F71B8]/10 rounded-lg flex items-center justify-center">
-                        <MapPin className="w-5 h-5 text-[#1F71B8]" />
+                      <div className="w-10 h-10 bg-[#2B75B8]/10 rounded-lg flex items-center justify-center">
+                        <MapPin className="w-5 h-5 text-[#2B75B8]" />
                       </div>
                       <div>
                         <p className="text-xs text-gray-500 uppercase tracking-wider">Location</p>
-                        <p className="text-[#0D2E52] font-semibold">Ontario, Canada</p>
+                        <p className="text-[#0F2D4A] font-semibold">Ontario, Canada</p>
                       </div>
                     </div>
                     <a href="https://www.quartzperfection.ca" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
-                      <div className="w-10 h-10 bg-[#1F71B8]/10 rounded-lg flex items-center justify-center group-hover:bg-[#1F71B8]/20 transition-colors">
-                        <Globe className="w-5 h-5 text-[#1F71B8]" />
+                      <div className="w-10 h-10 bg-[#2B75B8]/10 rounded-lg flex items-center justify-center group-hover:bg-[#2B75B8]/20 transition-colors">
+                        <Globe className="w-5 h-5 text-[#2B75B8]" />
                       </div>
                       <div>
                         <p className="text-xs text-gray-500 uppercase tracking-wider">Website</p>
-                        <p className="text-[#0D2E52] font-semibold group-hover:text-[#1F71B8] transition-colors">
+                        <p className="text-[#0F2D4A] font-semibold group-hover:text-[#2B75B8] transition-colors">
                           quartzperfection.ca
                         </p>
                       </div>
@@ -282,7 +282,7 @@ export default function ContactPage() {
               <ScrollReveal direction="right" delay={200}>
                 {/* Free Inspection Banner */}
                 <div className="bg-gray-50 border border-gray-200 p-6 rounded-2xl text-center">
-                  <p className="text-[#1F71B8] font-semibold text-sm uppercase tracking-wider mb-2">
+                  <p className="text-[#2B75B8] font-semibold text-sm uppercase tracking-wider mb-2">
                     Free Inspections
                   </p>
                   <p className="text-gray-600 text-sm">
@@ -300,7 +300,7 @@ export default function ContactPage() {
         <div className="mx-auto px-[5%] sm:px-[10%] md:px-[15%] lg:px-[18%]">
           <ScrollReveal direction="up">
             <div className="text-center mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0D2E52] mb-3">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0F2D4A] mb-3">
                 Explore Our Materials
               </h2>
               <p className="text-gray-600">
@@ -313,9 +313,9 @@ export default function ContactPage() {
             <ScrollReveal direction="up" delay={0}>
               <Link 
                 href="/services/natural-stone" 
-                className="block h-full bg-white p-6 rounded-xl border border-gray-200 hover:border-[#1F71B8] hover:shadow-lg transition-all group"
+                className="block h-full bg-white p-6 rounded-xl border border-gray-200 hover:border-[#2B75B8] hover:shadow-lg transition-all group"
               >
-                <h3 className="text-lg font-bold text-[#0D2E52] mb-2 group-hover:text-[#1F71B8] transition-colors">
+                <h3 className="text-lg font-bold text-[#0F2D4A] mb-2 group-hover:text-[#2B75B8] transition-colors">
                   Natural Stone
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
@@ -327,9 +327,9 @@ export default function ContactPage() {
             <ScrollReveal direction="up" delay={100}>
               <Link 
                 href="/services/quartz" 
-                className="block h-full bg-white p-6 rounded-xl border border-gray-200 hover:border-[#1F71B8] hover:shadow-lg transition-all group"
+                className="block h-full bg-white p-6 rounded-xl border border-gray-200 hover:border-[#2B75B8] hover:shadow-lg transition-all group"
               >
-                <h3 className="text-lg font-bold text-[#0D2E52] mb-2 group-hover:text-[#1F71B8] transition-colors">
+                <h3 className="text-lg font-bold text-[#0F2D4A] mb-2 group-hover:text-[#2B75B8] transition-colors">
                   Quartz
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
@@ -341,9 +341,9 @@ export default function ContactPage() {
             <ScrollReveal direction="up" delay={200}>
               <Link 
                 href="/services/granite" 
-                className="block h-full bg-white p-6 rounded-xl border border-gray-200 hover:border-[#1F71B8] hover:shadow-lg transition-all group"
+                className="block h-full bg-white p-6 rounded-xl border border-gray-200 hover:border-[#2B75B8] hover:shadow-lg transition-all group"
               >
-                <h3 className="text-lg font-bold text-[#0D2E52] mb-2 group-hover:text-[#1F71B8] transition-colors">
+                <h3 className="text-lg font-bold text-[#0F2D4A] mb-2 group-hover:text-[#2B75B8] transition-colors">
                   Granite
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">

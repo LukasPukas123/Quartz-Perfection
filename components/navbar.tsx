@@ -18,7 +18,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-8 flex-1 justify-end pr-16">
             <Link
               href="/about"
-              className="text-white/80 text-xs font-medium tracking-[0.15em] hover:text-[#1A365D] transition-colors uppercase"
+              className="text-white/80 text-xs font-medium tracking-[0.15em] hover:text-[#2B75B8] transition-colors uppercase"
             >
               About
             </Link>
@@ -28,7 +28,7 @@ export function Navbar() {
               onMouseLeave={() => setIsServicesOpen(false)}
             >
               <button
-                className="flex items-center gap-1 text-white/80 text-xs font-medium tracking-[0.15em] hover:text-[#1A365D] transition-colors uppercase"
+                className="flex items-center gap-1 text-white/80 text-xs font-medium tracking-[0.15em] hover:text-[#2B75B8] transition-colors uppercase"
                 aria-haspopup="true"
                 aria-expanded={isServicesOpen}
               >
@@ -49,21 +49,21 @@ export function Navbar() {
                 <div className="bg-[#1A1A1A] border border-neutral-800 py-2">
                 <Link
                   href="/services/natural-stone"
-                  className="block px-4 py-2 text-xs text-white/70 hover:text-[#1A365D] hover:bg-neutral-800/50 tracking-wide"
+                  className="block px-4 py-2 text-xs text-white/70 hover:text-[#2B75B8] hover:bg-neutral-800/50 tracking-wide"
                   onClick={() => setIsServicesOpen(false)}
                 >
                   Natural Stone Countertops
                 </Link>
                 <Link
                   href="/services/quartz"
-                  className="block px-4 py-2 text-xs text-white/70 hover:text-[#1A365D] hover:bg-neutral-800/50 tracking-wide"
+                  className="block px-4 py-2 text-xs text-white/70 hover:text-[#2B75B8] hover:bg-neutral-800/50 tracking-wide"
                   onClick={() => setIsServicesOpen(false)}
                 >
                   Quartz Countertops
                 </Link>
                 <Link
                   href="/services/granite"
-                  className="block px-4 py-2 text-xs text-white/70 hover:text-[#1A365D] hover:bg-neutral-800/50 tracking-wide"
+                  className="block px-4 py-2 text-xs text-white/70 hover:text-[#2B75B8] hover:bg-neutral-800/50 tracking-wide"
                   onClick={() => setIsServicesOpen(false)}
                 >
                   Granite Countertops
@@ -80,7 +80,7 @@ export function Navbar() {
               alt="Quartz Perfection"
               width={60}
               height={60}
-              className="w-10 h-10 md:w-12 md:h-12 brightness-0 invert"
+              className="w-10 h-10 md:w-12 md:h-12"
             />
           </Link>
 
@@ -88,13 +88,13 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-8 flex-1 pl-16">
             <Link
               href="/contact"
-              className="text-white/80 text-xs font-medium tracking-[0.15em] hover:text-[#1A365D] transition-colors uppercase"
+              className="text-white/80 text-xs font-medium tracking-[0.15em] hover:text-[#2B75B8] transition-colors uppercase"
             >
               Contact
             </Link>
             <Button
               asChild
-              className="bg-[#1A365D] hover:bg-[#0F2442] text-white rounded-none px-6 text-xs font-semibold tracking-[0.15em] uppercase"
+              className="bg-[#2B75B8] hover:bg-[#1E5A94] text-white rounded-none px-6 text-xs font-semibold tracking-[0.15em] uppercase"
             >
               <Link href="/contact">Free Quote</Link>
             </Button>
@@ -159,7 +159,7 @@ export function Navbar() {
             <Link
               href="/contact"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="inline-flex items-center gap-3 border border-[#1A365D] text-[#1A365D] text-[11px] font-semibold tracking-[0.2em] uppercase px-8 py-4"
+              className="inline-flex items-center gap-3 border border-[#2B75B8] text-[#2B75B8] text-[11px] font-semibold tracking-[0.2em] uppercase px-8 py-4"
             >
               Free Quote
             </Link>

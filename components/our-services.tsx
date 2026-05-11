@@ -38,11 +38,11 @@ export function OurServices() {
         <ScrollReveal direction="up">
           <div className="text-center mb-14 md:mb-20">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="w-8 h-px bg-[#1A365D]" />
-              <p className="text-[#1A365D] font-semibold tracking-[0.25em] text-[10px] md:text-xs uppercase">
+              <div className="w-8 h-px bg-[#2B75B8]" />
+              <p className="text-[#2B75B8] font-semibold tracking-[0.25em] text-[10px] md:text-xs uppercase">
                 What We Offer
               </p>
-              <div className="w-8 h-px bg-[#1A365D]" />
+              <div className="w-8 h-px bg-[#2B75B8]" />
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
               Premium Materials
@@ -73,13 +73,13 @@ export function OurServices() {
 
                 {/* Content */}
                 <div>
-                  <h3 className="text-lg md:text-xl font-semibold text-white mb-3 group-hover:text-[#1A365D] transition-colors duration-300">
+                  <h3 className="text-lg md:text-xl font-semibold text-white mb-3 group-hover:text-[#2B75B8] transition-colors duration-300">
                     {service.title}
                   </h3>
                   <p className="text-neutral-400 text-sm leading-relaxed mb-4">
                     {service.description}
                   </p>
-                  <span className="inline-flex items-center gap-2 text-[#1A365D] text-sm font-medium group-hover:gap-3 transition-all duration-300">
+                  <span className="inline-flex items-center gap-2 text-[#2B75B8] text-sm font-medium group-hover:gap-3 transition-all duration-300">
                     {service.cta}
                     <ArrowRight className="w-4 h-4" />
                   </span>
